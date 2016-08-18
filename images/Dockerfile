@@ -1,5 +1,6 @@
-FROM tomcat:7-jre7
+FROM jetty:9
 
-ADD demo-java.war /usr/local/tomcat/webapps/ROOT.war
+#RUN rm -rf /usr/local/tomcat/webapps/*
+ADD demo-java.war /var/lib/jetty/webapps/ROOT.war
 
 
