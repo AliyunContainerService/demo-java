@@ -37,7 +37,7 @@ public class Counter extends HttpServlet {
         try {
             Connection c = getConnection();
             Statement s = c.createStatement();
-            s.executeUpdate("update counter set total=total+1");
+            s.executeUpdate("update counter set total=total+10");
             resp.setContentLength(0);
             s.close();
             c.close();
