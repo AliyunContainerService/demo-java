@@ -1,0 +1,19 @@
+demo-java:
+  image: ${IMAGE}
+  #image: tomcat:8.0
+  labels:
+    aliyun.routing.port_8080: demo-java
+  ports:
+    - 18080:8080
+  environment:
+    - DB_URL=jdbc:mysql://mysql:3306/demo
+    - DB_USER=root
+    - DB_PASSWD=passwd
+  links:
+    - mysql
+
+mysql:
+  image: registry.cn-hangzhou.aliyuncs.com/jiangjizhong/mysql:latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=passwd
+

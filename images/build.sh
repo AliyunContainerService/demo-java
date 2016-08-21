@@ -14,5 +14,9 @@ gradle war
 cp build/libs/demo-java.war images/
 )
 
-docker build -t registry.cn-hangzhou.aliyuncs.com/jiangjizhong/demo-java:latest .
+GIT_SHA=`git rev-parse --short HEAD || echo "GitNotFound"`
+
+export IMAGE="demo-java:$GIT_SHA"
+docker build -t $IMAGE .
+docker-compose -f ../docker-compose.yml up
 
